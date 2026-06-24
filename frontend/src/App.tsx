@@ -6,7 +6,9 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
+
 
 function App() {
   return (
@@ -19,10 +21,10 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="dashboard" element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
+              <ProtectedRoute><Dashboard /></ProtectedRoute>
             } />
+            {/* Catch-all для несуществующих маршрутов */}
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

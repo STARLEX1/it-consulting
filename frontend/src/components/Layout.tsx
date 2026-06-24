@@ -2,6 +2,35 @@ import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ООО «Парус-Рязань»",
+  "url": "https://parus-ryazan.ru",
+  "logo": "https://parus-ryazan.ru/logo.png",
+  "description": "Ведущий поставщик IT-услуг в Рязанском регионе с 1995 года",
+  "foundingDate": "1995",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Право-Лыбедская, 40, оф. 11",
+    "addressLocality": "Рязань",
+    "postalCode": "390000",
+    "addressCountry": "RU"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+7-4912-95-85-52",
+    "email": "parus-ryazan@mail.ru",
+    "contactType": "customer service"
+  },
+  "sameAs": []
+};
+
+// В компоненте:
+<script type="application/ld+json">
+  {JSON.stringify(organizationSchema)}
+</script>
+
 const Layout: React.FC = () => {
   const { isAuthenticated, logout } = useAuth();
   const location = useLocation();
